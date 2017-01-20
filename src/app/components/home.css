@@ -1,0 +1,47 @@
+.editor,.preview{
+	width: 45%;
+	height: 95%;
+	display: inline-block;
+	margin:0 2.5%;
+	float: left;
+
+}
+.preview{
+ 	background: white;
+	overflow: scroll;
+	padding: 1rem 2rem;
+}
+.editor__textarea{
+ 	height: 100%;
+	width: 100%;
+	padding: 1rem 2rem;
+
+}
+blockquote{
+	padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+}
+
+strong {
+    font-weight: 600;
+}
+table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+table th {
+    font-weight: bold;
+}
+table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+table th, table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+}
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
