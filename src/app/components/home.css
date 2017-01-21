@@ -1,10 +1,8 @@
 .editor,.preview{
-	width: 45%;
-	height: 95%;
+    width: 50%;
+	height:100%;
 	display: inline-block;
-	margin:0 2.5%;
 	float: left;
-
 }
 .preview{
  	background: white;
@@ -12,10 +10,52 @@
 	padding: 1rem 2rem;
 }
 .editor__textarea{
+    background: #212121;
+    color: aliceblue;
  	height: 100%;
 	width: 100%;
-	padding: 1rem 2rem;
+	padding: 2.5rem 1rem 0;
 
+}
+.editor__textarea:focus{
+    outline: none;
+}
+.helper{
+    background-color: #64aeb3;
+    transition: .3s;
+    width: 32%;
+    position: absolute;
+}
+.helper--hide{
+    margin-left: -31%;
+    transition: .3s;
+    position: absolute;
+}
+
+.helper__hint{
+    content: ' ';
+    background: #FF5722;
+    position: absolute;
+    cursor: pointer;
+    right: -39px;
+    color: white;
+    height: 100%;
+    padding: 7px; 
+}
+.helper__btn{
+    background-color: #64aeb3;
+    color: white;
+    border: none;
+    margin: 0px 0px;
+    height: 30px;
+    padding: 0 16px;
+}
+.helper__btn:hover{
+    background-color: #7ec1c5;
+    transition: .3s;
+}
+.helper__btn:focus{
+    outline: none;
 }
 blockquote{
 	padding: 0 1em;

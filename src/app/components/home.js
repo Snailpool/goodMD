@@ -32,9 +32,11 @@ const defaultText = `# Markdown 線上編輯器
 class Home extends React.Component {
 	constructor(defaultProps) {
 		super(defaultProps);
-		this.state = { defaultText, preview: '', startPosition: 0, endPosition: 0 };
+		this.state = { defaultText, preview: '', startPosition: 0, endPosition: 0, helper: false };
 		this.inputTextarea = document.getElementById('inputTextarea');
 	}
+
+	// parse markdown form editor, and append it to preview block.
 	parseMarkdown(evt) {
 		const textArea = evt.target;
 		marked.setOptions({
@@ -53,24 +55,30 @@ class Home extends React.Component {
 			startPosition: textArea.selectionStart,
 			endPosition: textArea.selectionEnd });
 	}
+	// append certain type of markdown.
 	append(type, evt) {
 		const generator = new GenerateTemplates(type);
 		this.refs.markdown.value = this.refs.markdown.value.slice(0, this.state.startPosition)
 									+ generator.render()
 									+ this.refs.markdown.value.slice(this.state.endPosition, this.refs.markdown.value.length);
 	}
+
+	toggleHelper() {
+		this.setState({ helper: !this.state.helper });
+	}
 	render() {
 		return (
 			<div style={{ height: '100%' }}>
 				<div styleName="editor">
-					<div>
-						<button onClick={ this.append.bind(this, 'link') }>連結</button>
-						<button onClick={ this.append.bind(this, 'table') }>表格</button>
-						<button onClick={ this.append.bind(this, 'code') }>程式碼</button>
-						<button onClick={ this.append.bind(this, 'image') }>圖片</button>
-						<button onClick={ this.append.bind(this, 'video') }>youtube影片</button>
+					<div styleName={ this.state.helper ? 'helper' : 'helper helper--hide' }>
+						<button styleName="helper__btn" onClick={ this.append.bind(this, 'link') }>連結</button>
+						<button styleName="helper__btn" onClick={ this.append.bind(this, 'table') }>表格</button>
+						<button styleName="helper__btn" onClick={ this.append.bind(this, 'code') }>程式碼</button>
+						<button styleName="helper__btn" onClick={ this.append.bind(this, 'image') }>圖片</button>
+						<button styleName="helper__btn" onClick={ this.append.bind(this, 'video') }>youtube影片</button>
+						<span styleName="helper__hint" onClick={ this.toggleHelper.bind(this) }>help !</span>
 					</div>
-					<textarea id="inputTextarea" onChange={this.parseMarkdown.bind(this) } styleName="editor__textarea" defaultValue={this.state.defaultText} ref="markdown"></textarea>
+					<textarea id="inputTextarea" onClick={this.parseMarkdown.bind(this)} onChange={this.parseMarkdown.bind(this) } styleName="editor__textarea" defaultValue={this.state.defaultText} ref="markdown"></textarea>
 				</div>
 				<div styleName="preview" id="preview">
 					<div dangerouslySetInnerHTML={{ __html: this.state.preview }}></div>
@@ -80,4 +88,4 @@ class Home extends React.Component {
 	}
 }
 
-export default CSSModules(Home, styles);
+export default CSSModules(Home, styles,{allowMultiple:true});
