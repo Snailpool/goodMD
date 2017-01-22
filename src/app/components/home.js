@@ -4,6 +4,7 @@ import marked from 'marked';
 import highlight from 'highlight.js';
 import GenerateTemplates from './generateTemplates.js';
 import styles from './home.css';
+
 const defaultText = `# Markdown 線上編輯器
 **點 [這裡](https://help.github.com/categories/writing-on-github/) 
 了解更多GFM格式**
@@ -51,9 +52,11 @@ class Home extends React.Component {
 			smartLists: true,
 			smartypants: false,
 		});
+		debugger
 		this.setState({ preview: marked(this.refs.markdown.value),
 			startPosition: textArea.selectionStart,
 			endPosition: textArea.selectionEnd });
+
 	}
 	// append certain type of markdown.
 	append(type, evt) {
