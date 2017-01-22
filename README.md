@@ -1,6 +1,10 @@
 # Markdown 線上編輯器
+
 **點 [這裡](https://help.github.com/categories/writing-on-github/) 
 了解更多GFM格式**
+
+[DEMO](http://goodmd.surge.sh/) 
+
 ## 介紹
 - 由github README.md 檔認識了markdown 這種文字編輯標準
 - 寫了這個編輯器做簡單的預覽功能
