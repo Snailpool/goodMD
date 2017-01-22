@@ -27,6 +27,9 @@ const defaultText = `# Markdown 線上編輯器
 
 
  [**isagalaev/highlight.js**](https://github.com/isagalaev/highlight.js) : 程式碼區塊的 highlight
+
+
+ [**afeld/emoji-css**](https://github.com/afeld/emoji-css/) : emoji 圖片的 class 
 `
 
 
