@@ -55,7 +55,7 @@ class Home extends React.Component {
 			smartLists: true,
 			smartypants: false,
 		});
-		debugger
+		
 		this.setState({ preview: marked(this.refs.markdown.value),
 			startPosition: textArea.selectionStart,
 			endPosition: textArea.selectionEnd });
