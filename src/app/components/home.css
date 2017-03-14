@@ -3,11 +3,14 @@
 	height:100%;
 	display: inline-block;
 	float: left;
+
 }
 .preview{
  	background: white;
 	overflow: scroll;
 	padding: 1rem 2rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
 }
 .editor__textarea{
     background: #212121;
@@ -15,6 +18,8 @@
  	height: 100%;
 	width: 100%;
 	padding: 2.5rem 1rem 0;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
 
 }
 .editor__textarea:focus{

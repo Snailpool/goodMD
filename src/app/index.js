@@ -1,11 +1,24 @@
 import React from 'react';
-import { render } from 'react-dom';
-import AppRoutes from './appRoutes';
-import { Router, Route, browserHistory } from 'react-router';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import AppRouter from './appRoutes.js';
+// AppContainer is a necessary wrapper component for HMR
 
+// render the HMR wrapper and entry component
+const render = (Component) => {
+	ReactDOM.render(
+		<AppContainer>
+			<AppRouter />
+		</AppContainer>,
+		document.getElementById('app')
+	);
+};
 
-// Create an enhanced history that syncs navigation events with the store
+render(AppRouter);
 
-render(
-		<AppRoutes />
-	, document.getElementById('app'));
+// Hot Module Replacement API
+if (module.hot) {
+	module.hot.accept('./components/app.js', () => {
+		render(AppRouter);
+	});
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import CSSModules from 'react-css-modules';
 import styles from './about.css';
 
 class About extends React.Component {
@@ -9,4 +8,4 @@ class About extends React.Component {
 		);
 	}
 }
-export default CSSModules(About, styles);
+export default About;
